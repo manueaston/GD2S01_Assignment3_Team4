@@ -17,7 +17,11 @@ public class GameManager : MonoBehaviour
     // Intialise game state
     private gameState state = gameState.gameStart;
 
-
+    // Hospital Staff:
+    public Nurse nurse;
+    public Doctor doctorNeed1;
+    public Doctor doctorNeed2;
+    public Doctor doctorNeed3;
 
 
     // Start is called before the first frame update
@@ -36,6 +40,12 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game State = gameStart: ");
             //spawn patients
             StartCoroutine(spawnWave());
+
+            // Nurse gets patient at top of list
+            if (nurse.patient == null)
+            {
+                //nurse.patient = Patients[0]
+            }
         }
         else if (state == gameState.gameOver)
         {
