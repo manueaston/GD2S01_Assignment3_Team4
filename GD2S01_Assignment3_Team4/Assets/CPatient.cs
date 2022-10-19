@@ -9,13 +9,16 @@ public enum NeedType {
     Type3
 };
 
-struct Need {
-    int m_Priority;
-    NeedType m_Type;
+public struct Need
+{
+    public int m_Priority;
+    public NeedType m_Type;
 };
 
 public class CPatient : MonoBehaviour
 {
+   
+
     public GameObject newPatient;
     private Need m_Need;
 
@@ -31,12 +34,16 @@ public class CPatient : MonoBehaviour
 
     }
 
-    Need GetNeed() { return m_Need; }
+    public Need GetNeed() { return m_Need; }
 
-    void SetNeed(int _priority, NeedType _needtype)
+    public void SetNeedTypr(NeedType _needtype)
     {
-        //m_Priority  = _priority;
-        //m_Type = _needtype;
+        m_Need.m_Type = _needtype;
+    }
+
+    public void SetPriority(int _priority)
+    {
+        m_Need.m_Priority = _priority;
     }
 
 }

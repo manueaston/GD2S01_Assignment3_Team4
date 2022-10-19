@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nurse : HealthWorker
+public class CNurse : CHealthWorker
 {
-    public Doctor doctor;
+    public CDoctor doctor;
     //public Doctor doctorType1;
     //public Doctor doctorType2;
     //public Doctor doctorType3;
@@ -22,7 +22,7 @@ public class Nurse : HealthWorker
     public void triagePatient()
     {
         Debug.Log("Nurse Triaging Patient");
-        if (patient.m_iPriority == 1)
+        if (patient.GetNeed().m_Priority == 1)
         {
             attendToPatient();
         }

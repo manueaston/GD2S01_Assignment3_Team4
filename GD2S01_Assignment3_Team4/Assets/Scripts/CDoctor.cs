@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Doctor : HealthWorker
+public class CDoctor : CHealthWorker
 {
     // TODO: NeedType m_Specialisation
 

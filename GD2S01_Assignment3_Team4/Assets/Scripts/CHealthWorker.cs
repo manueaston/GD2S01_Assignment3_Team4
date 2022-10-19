@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class HealthWorker : MonoBehaviour
+public abstract class CHealthWorker : MonoBehaviour
 {
-    public Patient patient;
+    public CPatient patient;
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public abstract class HealthWorker : MonoBehaviour
     {
         Debug.Log("Releasing Patient");
         // sets priority to 0, so that patient will be released from the hospital
-        patient.m_iPriority = 0;
+        patient.SetPriority(0);
         patient = null;
     }
 }
