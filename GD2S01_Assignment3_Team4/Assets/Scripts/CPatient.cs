@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum NeedType { 
+    Type0 = 0,
     Type1 = 1,
     Type2 = 2,
     Type3 = 3,
@@ -24,15 +25,25 @@ public class CPatient : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Set Random Need
+        SetNeedType((NeedType)UnityEngine.Random.Range(0, 3));
+        
+        // if need 0 priority = 0
+        /*if (GetNeedType() == GetNeedType(m_Type.Type0))
+        {
+            SetPriority(0);
+        }
+        else
+        {
+            //Set Random Priority
+            SetPriority(UnityEngine.Random.Range(1, 3));
+        }*/
+
         //Set Random Priority
         SetPriority(UnityEngine.Random.Range(0, 3));
-        //Set Random Need
-        SetNeedType((NeedType)UnityEngine.Random.Range(1, 3));
-        
-        //GetNeed(needType);
+
         //UnityEngine.Debug.Log("Patient enters ED: ");
-        UnityEngine.Debug.Log("Patient Priority : " + m_Need.m_Priority + "||Patient Need     : " + m_Need.m_Type);
-        //UnityEngine.Debug.Log("Patient Need     : " + m_Need.m_Type);
+        UnityEngine.Debug.Log("Patient Priority : " + GetPriority() + " || Patient Need     : " + GetNeedType());
     }
 
     // Update is called once per frame
@@ -43,11 +54,14 @@ public class CPatient : MonoBehaviour
 
     public Need GetNeed() { return m_Need; }
 
+    public NeedType GetNeedType() { return m_Need.m_Type; }
+
     public void SetNeedType(NeedType _needtype)
     {
         m_Need.m_Type = _needtype;
     }
 
+    public int GetPriority() { return m_Need.m_Priority; }
     public void SetPriority(int _priority)
     {
         m_Need.m_Priority = _priority;
