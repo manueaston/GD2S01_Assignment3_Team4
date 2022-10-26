@@ -14,7 +14,7 @@ public class CDoctor : CHealthWorker
     * @return: Function has no return but calls 
     * releasPatient() function at end
     ************************************************/
-    public override void attendToPatient()
+    public override void attendToPatient(float _serviceTime)
     {
         Debug.Log("Doctor Attending to Patient");
         releasePatient(); // release after patient is attended to

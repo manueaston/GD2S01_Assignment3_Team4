@@ -18,10 +18,14 @@ public class CGameManager : MonoBehaviour
 
 
     // Hospital Staff:
-    //public CNurse nurse;
-    //public CDoctor doctorNeed1;
-    //public CDoctor doctorNeed2;
-    //public CDoctor doctorNeed3;
+    
+    public CAdminNurse nurse;
+    public CRegisteredNurse nurseNeed1;
+    public CRegisteredNurse nurseNeed2;
+    public CRegisteredNurse nurseNeed3;
+    public CDoctor doctorNeed1;
+    public CDoctor doctorNeed2;
+    public CDoctor doctorNeed3;
 
 
 

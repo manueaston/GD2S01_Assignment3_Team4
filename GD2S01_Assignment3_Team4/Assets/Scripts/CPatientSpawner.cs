@@ -26,6 +26,10 @@ public class CPatientSpawner : MonoBehaviour
             if ((m_currentTime + m_SpawnRate) < Time.time)
             {
                 m_factory.GetSpawnedInstance();
+                //Patients.CopyTo(Patients, 1);
+                
+                //UnityEngine.Debug.Log(Patients.GetLength());
+
                 m_iEmergencyQueue++;
                 m_currentTime = Time.time;
             }

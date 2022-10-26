@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
-public class CNurse : CHealthWorker
+public class CAdminNurse : CHealthWorker
 {
     public CDoctor doctor;
     //public Doctor doctorType1;
@@ -21,7 +22,7 @@ public class CNurse : CHealthWorker
     ************************************************/
     public void triagePatient()
     {
-        Debug.Log("Nurse Triaging Patient");
+        UnityEngine.Debug.Log("Nurse Triaging Patient");
         if (patient.GetNeed().m_Priority == 1)
         {
             //attendToPatient();
@@ -42,7 +43,7 @@ public class CNurse : CHealthWorker
     ************************************************/
     public override void attendToPatient(float _serviceTime)
     {
-        Debug.Log("Nurse Attending to Patient");
+        UnityEngine.Debug.Log("Nurse Attending to Patient");
         releasePatient(); // release after patient is attended to
     }
 
@@ -57,11 +58,11 @@ public class CNurse : CHealthWorker
     ************************************************/
     public void referPatientToDoctor()
     {
-        Debug.Log("Nurse Refering Patient To Doctor");
+        UnityEngine.Debug.Log("Nurse Refering Patient To Doctor");
 
         // TODO: choose specific doctor based on patient needs
 
-        while(doctor.patient != null)
+        while (doctor.patient != null)
         {
             // wait for doctor to be free
         }

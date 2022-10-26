@@ -312,6 +312,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1085273532
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4038631678159043420, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_Name
+      value: CAdminNurse
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242452342243050246, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+--- !u!1 &1085273533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4038631678159043420, guid: fab1d61009fa22648a8038496a41d79b, type: 3}
+  m_PrefabInstance: {fileID: 1085273532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1085273534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085273533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496f433bcd8b578418a873072b58b5e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patient: {fileID: 0}
+  serviceTime: 20
+  doctor: {fileID: 0}
 --- !u!1001 &1204204334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,6 +476,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PatientSpawnerScript: {fileID: 287056751}
+  nurse: {fileID: 0}
+  nurseNeed1: {fileID: 0}
+  nurseNeed2: {fileID: 0}
+  nurseNeed3: {fileID: 0}
+  doctorNeed1: {fileID: 0}
+  doctorNeed2: {fileID: 0}
+  doctorNeed3: {fileID: 0}
 --- !u!4 &1417860989
 Transform:
   m_ObjectHideFlags: 0
@@ -423,7 +507,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8302667829268859379, guid: 5460a4d006ab9554aa652f850c89e93d, type: 3}
       propertyPath: m_iMaxEmergencyQueue
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4777189854063196872, guid: 5460a4d006ab9554aa652f850c89e93d, type: 3}
       propertyPath: m_Name
