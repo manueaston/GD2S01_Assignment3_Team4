@@ -8,6 +8,7 @@ public class CPatientSpawner : MonoBehaviour
     // Holds spawned patient temporarily to be compied into HospitalFacade Patient queue
 
     public CHospitalFacade hospital;
+    // Hospital facade, to add patients to queue;
 
     [SerializeField]
     private CPatientFactory m_factory;
@@ -30,10 +31,12 @@ public class CPatientSpawner : MonoBehaviour
             {
                 tempPatientHolder = m_factory.GetSpawnedInstance();
                 hospital.patientQueue.Enqueue(tempPatientHolder);
+                // Adds patient to queue in hospital
 
-                //UnityEngine.Debug.Log(Patients.GetLength());
+                m_iEmergencyQueue = hospital.patientQueue.Count;
+                // Gets size of queue, to determine in gamemanager whether queue has grown too large
+                Debug.Log("Queue size = " + m_iEmergencyQueue);
 
-                m_iEmergencyQueue++;
                 m_currentTime = Time.time;
             }
         }

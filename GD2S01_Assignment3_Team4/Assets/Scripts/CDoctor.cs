@@ -17,6 +17,7 @@ public class CDoctor : CHealthWorker
     public override void attendToPatient(float _serviceTime)
     {
         Debug.Log("Doctor Attending to Patient");
-        releasePatient(); // release after patient is attended to
+        hospital.ReleasePatient(patient); // release after patient is attended to
+        patient = null;
     }
 }

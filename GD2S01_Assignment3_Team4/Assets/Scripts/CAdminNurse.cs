@@ -5,12 +5,6 @@ using UnityEngine;
 
 public class CAdminNurse : CHealthWorker
 {
-    public CDoctor doctor;
-    //public Doctor doctorType1;
-    //public Doctor doctorType2;
-    //public Doctor doctorType3;
-    // TODO: when need types are implemented, have doctor for each type
-
 
     /***********************************************
     * name of the function: TriagePatient
@@ -25,11 +19,11 @@ public class CAdminNurse : CHealthWorker
         UnityEngine.Debug.Log("Nurse Triaging Patient");
         if (patient.GetNeed().m_Priority == 1)
         {
-            //attendToPatient();
+            hospital.ReferPatientToNurse(patient.GetNeedType());
         }
         else
         {
-            referPatientToDoctor();
+            hospital.ReferPatientToDoctor(patient.GetNeedType());
         }
     }
 
@@ -44,7 +38,8 @@ public class CAdminNurse : CHealthWorker
     public override void attendToPatient(float _serviceTime)
     {
         UnityEngine.Debug.Log("Nurse Attending to Patient");
-        releasePatient(); // release after patient is attended to
+        hospital.ReleasePatient(patient); // release after patient is attended to
+        patient = null;
     }
 
 
@@ -56,18 +51,20 @@ public class CAdminNurse : CHealthWorker
     * patient to current patient when doctor has no
     * current patient
     ************************************************/
-    public void referPatientToDoctor()
-    {
-        UnityEngine.Debug.Log("Nurse Refering Patient To Doctor");
+    //public void referPatientToDoctor()
+    //{
+    //    UnityEngine.Debug.Log("Nurse Refering Patient To Doctor");
 
-        // TODO: choose specific doctor based on patient needs
+    //    // TODO: choose specific doctor based on patient needs
 
-        while (doctor.patient != null)
-        {
-            // wait for doctor to be free
-        }
-        doctor.patient = patient;
-        patient = null;
-        // pass on patient to doctor
-    }
+    //    while (doctor.patient != null)
+    //    {
+    //        // wait for doctor to be free
+    //    }
+    //    doctor.patient = patient;
+    //    patient = null;
+    //    // pass on patient to doctor
+    //}
+    
+    // Now done in hospital interface
 }

@@ -5,13 +5,6 @@ using UnityEngine;
 
 public class CRegisteredNurse : CHealthWorker
 {
-    public CDoctor doctor;
-    //public Doctor doctorType1;
-    //public Doctor doctorType2;
-    //public Doctor doctorType3;
-    // TODO: when need types are implemented, have doctor for each type
-
-
     /***********************************************
     * name of the function: TriagePatient
     * @author: Manu Easton
@@ -44,7 +37,8 @@ public class CRegisteredNurse : CHealthWorker
     public override void attendToPatient(float _serviceTime)
     {
         UnityEngine.Debug.Log("Nurse Attending to Patient");
-        releasePatient(); // release after patient is attended to
+        hospital.ReleasePatient(patient); // release after patient is attended to
+        patient = null;
     }
 
 

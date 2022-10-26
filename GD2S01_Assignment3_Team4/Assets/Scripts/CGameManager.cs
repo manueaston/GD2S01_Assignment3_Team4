@@ -26,8 +26,9 @@ public class CGameManager : MonoBehaviour
     //public CDoctor doctorNeed1;
     //public CDoctor doctorNeed2;
     //public CDoctor doctorNeed3;
-
     //Moved to HospitalFacade class
+
+    // Uses Hospital as a facade to provide a simple interface
     public CHospitalFacade hospital;
 
 
