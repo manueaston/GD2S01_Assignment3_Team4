@@ -18,15 +18,17 @@ public class CGameManager : MonoBehaviour
 
 
     // Hospital Staff:
-    
-    public CAdminNurse nurse;
-    public CRegisteredNurse nurseNeed1;
-    public CRegisteredNurse nurseNeed2;
-    public CRegisteredNurse nurseNeed3;
-    public CDoctor doctorNeed1;
-    public CDoctor doctorNeed2;
-    public CDoctor doctorNeed3;
 
+    //public CAdminNurse nurse;
+    //public CRegisteredNurse nurseNeed1;
+    //public CRegisteredNurse nurseNeed2;
+    //public CRegisteredNurse nurseNeed3;
+    //public CDoctor doctorNeed1;
+    //public CDoctor doctorNeed2;
+    //public CDoctor doctorNeed3;
+
+    //Moved to HospitalFacade class
+    public CHospitalFacade hospital;
 
 
     // Start is called before the first frame update
@@ -51,11 +53,7 @@ public class CGameManager : MonoBehaviour
             PatientSpawnerScript.m_bIsSpawning = true;
 
 
-            // Nurse gets patient at top of list
-            /*if (nurse.patient == null)
-            {
-                //nurse.patient = Patients[0]
-            }*/
+           
         }
         else if (state == gameState.gameOver)
         {

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CPatientSpawner : MonoBehaviour
 {
-    //public GameObject[] Patients;
+    public CPatient tempPatientHolder;
+    // Holds spawned patient temporarily to be compied into HospitalFacade Patient queue
+
+    public CHospitalFacade hospital;
 
     [SerializeField]
     private CPatientFactory m_factory;
@@ -25,9 +28,9 @@ public class CPatientSpawner : MonoBehaviour
         {
             if ((m_currentTime + m_SpawnRate) < Time.time)
             {
-                m_factory.GetSpawnedInstance();
-                //Patients.CopyTo(Patients, 1);
-                
+                tempPatientHolder = m_factory.GetSpawnedInstance();
+                hospital.patientQueue.Enqueue(tempPatientHolder);
+
                 //UnityEngine.Debug.Log(Patients.GetLength());
 
                 m_iEmergencyQueue++;
