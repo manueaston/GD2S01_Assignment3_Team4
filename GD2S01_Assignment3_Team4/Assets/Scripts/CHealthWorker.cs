@@ -8,6 +8,9 @@ public abstract class CHealthWorker : MonoBehaviour
     public float m_fServiceTime;
     private float m_currentTime = 0;
 
+    public CHospitalFacade hospital;
+    // Hospital facade
+
     /*use Time.time(which tracks the total elapsed time since app or level startup - can't remember which) 
        or Time.deltaTime (which is the time elapsed since the last update).*/
 
@@ -15,6 +18,10 @@ public abstract class CHealthWorker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (patient??false) // true if patient has CPatient object
+        {
+            attendToPatient(m_fServiceTime);
+        }
     }
 
 
@@ -37,11 +44,13 @@ public abstract class CHealthWorker : MonoBehaviour
     * @return: Function has no return but sets patient
     * in HealthWorker object to null
     ************************************************/
-    public void releasePatient()
-    {
-        UnityEngine.Debug.Log("Releasing Patient");
-        // sets priority to 0, so that patient will be released from the hospital
-        patient.SetPriority(0);
-        patient = null;
-    }
+    //public void releasePatient()
+    //{
+    //    UnityEngine.Debug.Log("Releasing Patient");
+    //    // sets priority to 0, so that patient will be released from the hospital
+    //    patient.SetPriority(0);
+    //    patient = null;
+    //}
+
+    // Moved to hospital facade class
 }

@@ -22,25 +22,12 @@ public class CPatient : MonoBehaviour
     public GameObject newPatient;
     private Need m_Need;
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called when object is instantiated
+    void Awake()
     {
         //Set Random Need
-        SetNeedType((NeedType)UnityEngine.Random.Range(0, 3));
-        
-        // if need 0 priority = 0
-        /*if (GetNeedType() == GetNeedType(m_Type.Type0))
-        {
-            SetPriority(0);
-        }
-        else
-        {
-            //Set Random Priority
-            SetPriority(UnityEngine.Random.Range(1, 3));
-        }*/
-
-        //Set Random Priority
-        SetPriority(UnityEngine.Random.Range(0, 3));
+        SetNeedType((NeedType)UnityEngine.Random.Range(1, 4));
+        SetPriority(UnityEngine.Random.Range(1, 4));
 
         //UnityEngine.Debug.Log("Patient enters ED: ");
         UnityEngine.Debug.Log("Patient Priority : " + GetPriority() + " || Patient Need     : " + GetNeedType());
@@ -49,7 +36,11 @@ public class CPatient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (m_Need.m_Priority == 0)
+        {
+            Debug.Log("Destroying Patient");
+            Destroy(this.gameObject);
+        }
     }
 
     public Need GetNeed() { return m_Need; }
