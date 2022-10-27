@@ -17,7 +17,7 @@ public class CAdminNurse : CHealthWorker
     public void triagePatient()
     {
         UnityEngine.Debug.Log("Nurse Triaging Patient");
-        if (patient.GetNeed().m_Priority == 1)
+        if (patient.GetPriority() == 1)
         {
             hospital.ReferPatientToNurse(patient.GetNeedType());
         }

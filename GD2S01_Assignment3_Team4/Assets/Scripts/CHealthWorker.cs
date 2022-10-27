@@ -18,6 +18,10 @@ public abstract class CHealthWorker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (patient??false) // true if patient has CPatient object
+        {
+            attendToPatient(m_fServiceTime);
+        }
     }
 
 
