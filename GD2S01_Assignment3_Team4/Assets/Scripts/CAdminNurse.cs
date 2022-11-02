@@ -35,9 +35,13 @@ public class CAdminNurse : CHealthWorker
     * @return: Function has no return but calls 
     * releasPatient() function at end
     ************************************************/
-    public override void attendToPatient(float _serviceTime)
+    public override IEnumerator attendToPatient(float _serviceTime)
     {
         UnityEngine.Debug.Log("Nurse Attending to Patient");
+
+        // Service Time
+        yield return new WaitForSeconds(_serviceTime);
+
         hospital.ReleasePatient(patient); // release after patient is attended to
         patient = null;
     }

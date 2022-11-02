@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class CHealthWorker : MonoBehaviour
 {
     public CPatient patient;
-    public float m_fServiceTime;
-    private float m_currentTime = 0;
+    public float m_ServiceTime;
+    //private float m_currentTime = 0;
 
     public CHospitalFacade hospital;
     // Hospital facade
@@ -20,7 +20,7 @@ public abstract class CHealthWorker : MonoBehaviour
     {
         if (patient??false) // true if patient has CPatient object
         {
-            attendToPatient(m_fServiceTime);
+            attendToPatient(m_ServiceTime);
         }
     }
 
@@ -30,10 +30,10 @@ public abstract class CHealthWorker : MonoBehaviour
     {
         patient = null;
         // starts with no patient referenced
-        m_fServiceTime = m_fServiceTime;
+        //m_fServiceTime = m_fServiceTime;
     }
 
-    public abstract void attendToPatient(float _serviceTime);
+    public abstract IEnumerator attendToPatient(float m_ServiceTime);
     // to be overridden in derived classes, depending on how they attend to patient
 
 
