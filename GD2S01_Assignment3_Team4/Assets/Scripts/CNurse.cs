@@ -34,15 +34,15 @@ public class CNurse : CHealthWorker
     * @return: Function has no return but calls 
     * releasPatient() function at end
     ************************************************/
-    public override IEnumerator attendToPatient(float _serviceTime)
+    public override IEnumerator AttendToPatient()
     {
         Debug.Log("Nurse Attending to Patient");
 
-        // Service Time
-        yield return new WaitForSeconds(_serviceTime);
+        yield return new WaitForSeconds(m_ServiceTime);
 
         hospital.ReleasePatient(patient); // release after patient is attended to
         patient = null;
+        patientBeingServiced = false;
     }
 
 

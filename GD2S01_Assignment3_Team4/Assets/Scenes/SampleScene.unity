@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: hospital
       value: 
       objectReference: {fileID: 910625259}
+    - target: {fileID: 3899082543546931043, guid: cac9b9fb2f605ef47b3d7049141dcf03, type: 3}
+      propertyPath: m_ServiceTime
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7907528937817852283, guid: cac9b9fb2f605ef47b3d7049141dcf03, type: 3}
       propertyPath: m_Name
       value: CRegisteredNurse3
@@ -195,6 +199,10 @@ PrefabInstance:
       propertyPath: hospital
       value: 
       objectReference: {fileID: 910625259}
+    - target: {fileID: 3899082543546931043, guid: cac9b9fb2f605ef47b3d7049141dcf03, type: 3}
+      propertyPath: m_ServiceTime
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7907528937817852283, guid: cac9b9fb2f605ef47b3d7049141dcf03, type: 3}
       propertyPath: m_Name
       value: CRegisteredNurse1
@@ -289,6 +297,10 @@ PrefabInstance:
       propertyPath: hospital
       value: 
       objectReference: {fileID: 910625259}
+    - target: {fileID: 3899082543546931043, guid: cac9b9fb2f605ef47b3d7049141dcf03, type: 3}
+      propertyPath: m_ServiceTime
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7907528937817852283, guid: cac9b9fb2f605ef47b3d7049141dcf03, type: 3}
       propertyPath: m_Name
       value: CRegisteredNurse2
@@ -455,6 +467,10 @@ PrefabInstance:
       propertyPath: hospital
       value: 
       objectReference: {fileID: 910625259}
+    - target: {fileID: 391156432382773933, guid: 270758a8b50872c48b93f513b15f9ff9, type: 3}
+      propertyPath: m_ServiceTime
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6056629133034214936, guid: 270758a8b50872c48b93f513b15f9ff9, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -882,6 +898,10 @@ PrefabInstance:
       propertyPath: hospital
       value: 
       objectReference: {fileID: 910625259}
+    - target: {fileID: 391156432382773933, guid: 270758a8b50872c48b93f513b15f9ff9, type: 3}
+      propertyPath: m_ServiceTime
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6056629133034214936, guid: 270758a8b50872c48b93f513b15f9ff9, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1008,6 +1028,10 @@ PrefabInstance:
       propertyPath: hospital
       value: 
       objectReference: {fileID: 910625259}
+    - target: {fileID: 391156432382773933, guid: 270758a8b50872c48b93f513b15f9ff9, type: 3}
+      propertyPath: m_ServiceTime
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6056629133034214936, guid: 270758a8b50872c48b93f513b15f9ff9, type: 3}
       propertyPath: m_RootOrder
       value: 7

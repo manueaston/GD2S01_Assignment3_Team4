@@ -21,7 +21,7 @@ public class CHospitalFacade : MonoBehaviour
     {
         if (nurseAdmin.patient??true && patientQueue.Count > 0) // nurseAdmin??true returns true if nurseAdmin evaluates to null
         {
-            AdmitPatient(patientQueue.Dequeue());
+            AdmitPatient(patientQueue.Peek());
         }
     }
 
@@ -55,19 +55,19 @@ public class CHospitalFacade : MonoBehaviour
             case NeedType.Type1:
                 {
                     Debug.Log("Patient assigned to doctor 1");
-                    AssignPatient(doctorNeed1, nurseAdmin.patient);                   
+                    StartCoroutine(AssignPatient(doctorNeed1, nurseAdmin.patient));                   
                     break;
                 }
             case NeedType.Type2:
                 {
                     Debug.Log("Patient assigned to doctor 2");
-                    AssignPatient(doctorNeed2, nurseAdmin.patient);                    
+                    StartCoroutine(AssignPatient(doctorNeed2, nurseAdmin.patient));                    
                     break;
                 }
             case NeedType.Type3:
                 {
                     Debug.Log("Patient assigned to doctor 3");
-                    AssignPatient(doctorNeed3, nurseAdmin.patient);                    
+                    StartCoroutine(AssignPatient(doctorNeed3, nurseAdmin.patient));                    
                     break;
                 }
         }
@@ -90,19 +90,19 @@ public class CHospitalFacade : MonoBehaviour
             case NeedType.Type1:
                 {
                     Debug.Log("Patient assigned to nurse 1");
-                    AssignPatient(nurseNeed1, nurseAdmin.patient);                 
+                    StartCoroutine(AssignPatient(nurseNeed1, nurseAdmin.patient));                 
                     break;
                 }
             case NeedType.Type2:
                 {
                     Debug.Log("Patient assigned to nurse 2");
-                    AssignPatient(nurseNeed2, nurseAdmin.patient);
+                    StartCoroutine(AssignPatient(nurseNeed2, nurseAdmin.patient));
                     break;
                 }
             case NeedType.Type3:
                 {
                     Debug.Log("Patient assigned to nurse 3");
-                    AssignPatient(nurseNeed3, nurseAdmin.patient);                   
+                    StartCoroutine(AssignPatient(nurseNeed3, nurseAdmin.patient));                   
                     break;
                 }
         }
@@ -117,16 +117,12 @@ public class CHospitalFacade : MonoBehaviour
     *          assigned patient, then assigns 
     *          _patient to _healthWorker
     ************************************************/
-    void AssignPatient(CHealthWorker _healthWorker, CPatient _patient)
+    IEnumerator AssignPatient(CHealthWorker _healthWorker, CPatient _patient)
     {
-        Debug.Log("AssignPatient");
-        while (_healthWorker.patient??false)
-        {
-            // wait for healthWorker to be free
-        }
+        yield return new WaitUntil(() =>_healthWorker ?? true);
         _healthWorker.patient = _patient;
     }
-
+   
     /***********************************************
     * name of the function: ReleasePatient
     * @author: Manu Easton
