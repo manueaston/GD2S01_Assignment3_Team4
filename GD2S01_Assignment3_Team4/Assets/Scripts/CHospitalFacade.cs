@@ -21,7 +21,7 @@ public class CHospitalFacade : MonoBehaviour
     {
         if (nurseAdmin.patient??true && patientQueue.Count > 0) // nurseAdmin??true returns true if nurseAdmin evaluates to null
         {
-            AdmitPatient(patientQueue.Peek());
+            AdmitPatient(patientQueue.Dequeue());
         }
     }
 
