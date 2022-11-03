@@ -26,7 +26,7 @@ public class CPatient : MonoBehaviour
     void Awake()
     {
         //Set Random Need
-        SetNeedType((NeedType)UnityEngine.Random.Range(1, 4));
+        SetNeedType((NeedType)UnityEngine.Random.Range(1, 2));
         SetPriority(UnityEngine.Random.Range(1, 4));
 
         //UnityEngine.Debug.Log("Patient enters ED: ");

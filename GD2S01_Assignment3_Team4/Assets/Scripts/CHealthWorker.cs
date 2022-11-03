@@ -10,7 +10,7 @@ public abstract class CHealthWorker : MonoBehaviour
     public CHospitalFacade hospital;
     // Hospital facade
 
-    protected bool patientBeingServiced = false; // Used to check if healthworker is currently servicing a patient
+    public bool patientBeingServiced = false; // Used to check if healthworker is currently servicing a patient
 
 
     // Update is called once per frame
