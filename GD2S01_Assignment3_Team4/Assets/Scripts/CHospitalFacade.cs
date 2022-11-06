@@ -21,7 +21,7 @@ public class CHospitalFacade : MonoBehaviour
     {
         if (patientQueue.Count > 0)
         {
-            if (nurseAdmin.patient ?? true) // nurseAdmin??true returns true if nurseAdmin evaluates to null
+            if (nurseAdmin.patient is null)
             {
                 AdmitPatient(patientQueue.Dequeue());
             }
@@ -55,11 +55,7 @@ public class CHospitalFacade : MonoBehaviour
         {
             case NeedType.Type1:
                 {
-                    if (doctorNeed1.patient ?? true)
-                    {
-                        Debug.Log("doctor1 no patient");
-                    }
-                    yield return new WaitUntil(() => doctorNeed1.patient ?? true);
+                    yield return new WaitUntil(() => doctorNeed1.patient is null);
 
                     Debug.Log("Patient assigned to doctor 1");
                     AssignPatient(doctorNeed1, nurseAdmin.patient);                   
@@ -67,7 +63,7 @@ public class CHospitalFacade : MonoBehaviour
                 }
             case NeedType.Type2:
                 {
-                    yield return new WaitUntil(() => doctorNeed2.patient ?? true);
+                    yield return new WaitUntil(() => doctorNeed2.patient is null);
 
                     Debug.Log("Patient assigned to doctor 2");
                     AssignPatient(doctorNeed2, nurseAdmin.patient);                    
@@ -75,7 +71,7 @@ public class CHospitalFacade : MonoBehaviour
                 }
             case NeedType.Type3:
                 {
-                    yield return new WaitUntil(() => doctorNeed3.patient ?? true);
+                    yield return new WaitUntil(() => doctorNeed3.patient is null);
 
                     Debug.Log("Patient assigned to doctor 3");
                     AssignPatient(doctorNeed3, nurseAdmin.patient);                    
@@ -98,7 +94,7 @@ public class CHospitalFacade : MonoBehaviour
         {
             case NeedType.Type1:
                 {
-                    yield return new WaitUntil(() => nurseNeed1.patient ?? true);
+                    yield return new WaitUntil(() => nurseNeed1.patient is null);
 
                     Debug.Log("Patient assigned to nurse 1");
                     AssignPatient(nurseNeed1, nurseAdmin.patient);                 
@@ -106,7 +102,7 @@ public class CHospitalFacade : MonoBehaviour
                 }
             case NeedType.Type2:
                 {
-                    yield return new WaitUntil(() => nurseNeed2.patient ?? true);
+                    yield return new WaitUntil(() => nurseNeed2.patient is null);
 
                     Debug.Log("Patient assigned to nurse 2");
                     AssignPatient(nurseNeed2, nurseAdmin.patient);
@@ -114,7 +110,7 @@ public class CHospitalFacade : MonoBehaviour
                 }
             case NeedType.Type3:
                 {
-                    yield return new WaitUntil(() => nurseNeed3.patient ?? true);
+                    yield return new WaitUntil(() => nurseNeed3.patient is null);
 
                     Debug.Log("Patient assigned to nurse 3");
                     AssignPatient(nurseNeed3, nurseAdmin.patient);                   
@@ -135,7 +131,6 @@ public class CHospitalFacade : MonoBehaviour
     {
         nurseAdmin.patient = null;
         nurseAdmin.patientBeingServiced = false;
-        Debug.Log("admin free");
         _healthWorker.patient = _patient;
     }
    
