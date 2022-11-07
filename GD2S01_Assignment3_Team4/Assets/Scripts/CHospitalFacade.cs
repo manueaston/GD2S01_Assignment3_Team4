@@ -19,9 +19,12 @@ public class CHospitalFacade : MonoBehaviour
 
     void Update()
     {
-        if (nurseAdmin.patient??true && patientQueue.Count > 0) // nurseAdmin??true returns true if nurseAdmin evaluates to null
+        if (patientQueue.Count > 0)
         {
-            AdmitPatient(patientQueue.Dequeue());
+            if (nurseAdmin.patient is null)
+            {
+                AdmitPatient(patientQueue.Dequeue());
+            }
         }
     }
 
@@ -30,13 +33,51 @@ public class CHospitalFacade : MonoBehaviour
     * @author: Manu Easton
     * @parameter: CPatient
     * @return: Sets nurseAdmin to new patient at 
-    *          front of queue, and calls 
-    *          triagePatient()
+    *          front of queue
     ************************************************/
     void AdmitPatient(CPatient _newPatient) // takes in a new patient from the queue
     {
         nurseAdmin.patient = _newPatient;
-        nurseAdmin.triagePatient();
+        //nurseAdmin.triagePatient();
+    }
+
+    /***********************************************
+    * name of the function: ReferPatientToDoctor
+    * @author: Manu Easton
+    * @parameter: NeedType
+    * @return: Assigns patient to relevant doctor
+    *          depending on patient NeedType, when
+    *          doctor is free
+    ************************************************/
+    public IEnumerator ReferPatientToDoctor(NeedType _type)
+    {
+        switch (_type)
+        {
+            case NeedType.Type1:
+                {
+                    yield return new WaitUntil(() => doctorNeed1.patient is null);
+
+                    Debug.Log("Patient assigned to doctor 1");
+                    AssignPatient(doctorNeed1, nurseAdmin.patient);                   
+                    break;
+                }
+            case NeedType.Type2:
+                {
+                    yield return new WaitUntil(() => doctorNeed2.patient is null);
+
+                    Debug.Log("Patient assigned to doctor 2");
+                    AssignPatient(doctorNeed2, nurseAdmin.patient);                    
+                    break;
+                }
+            case NeedType.Type3:
+                {
+                    yield return new WaitUntil(() => doctorNeed3.patient is null);
+
+                    Debug.Log("Patient assigned to doctor 3");
+                    AssignPatient(doctorNeed3, nurseAdmin.patient);                    
+                    break;
+                }
+        }
     }
 
     /***********************************************
@@ -44,69 +85,38 @@ public class CHospitalFacade : MonoBehaviour
     * @author: Manu Easton
     * @parameter: NeedType
     * @return: Assigns patient to relevant nurse
-    *          depending on patient NeedType. Sets
-    *          nurseAdmin patient to null, to take
-    *          new patient
+    *          depending on patient NeedType, when
+    *          nurse is free
     ************************************************/
-    public void ReferPatientToDoctor(NeedType _type)
+    public IEnumerator ReferPatientToNurse(NeedType _type)
     {
         switch (_type)
         {
             case NeedType.Type1:
                 {
-                    Debug.Log("Patient assigned to doctor 1");
-                    AssignPatient(doctorNeed1, nurseAdmin.patient);                   
-                    break;
-                }
-            case NeedType.Type2:
-                {
-                    Debug.Log("Patient assigned to doctor 2");
-                    AssignPatient(doctorNeed2, nurseAdmin.patient);                    
-                    break;
-                }
-            case NeedType.Type3:
-                {
-                    Debug.Log("Patient assigned to doctor 3");
-                    AssignPatient(doctorNeed3, nurseAdmin.patient);                    
-                    break;
-                }
-        }
-        nurseAdmin.patient = null;
-    }
+                    yield return new WaitUntil(() => nurseNeed1.patient is null);
 
-    /***********************************************
-    * name of the function: ReferPatientToNurse
-    * @author: Manu Easton
-    * @parameter: NeedType
-    * @return: Assigns patient to relevant doctor
-    *          depending on patient NeedType. Sets
-    *          nurseAdmin patient to null, to take
-    *          new patient
-    ************************************************/
-    public void ReferPatientToNurse(NeedType _type)
-    {
-        switch (_type)
-        {
-            case NeedType.Type1:
-                {
                     Debug.Log("Patient assigned to nurse 1");
                     AssignPatient(nurseNeed1, nurseAdmin.patient);                 
                     break;
                 }
             case NeedType.Type2:
                 {
+                    yield return new WaitUntil(() => nurseNeed2.patient is null);
+
                     Debug.Log("Patient assigned to nurse 2");
                     AssignPatient(nurseNeed2, nurseAdmin.patient);
                     break;
                 }
             case NeedType.Type3:
                 {
+                    yield return new WaitUntil(() => nurseNeed3.patient is null);
+
                     Debug.Log("Patient assigned to nurse 3");
                     AssignPatient(nurseNeed3, nurseAdmin.patient);                   
                     break;
                 }
         }
-        nurseAdmin.patient = null;
     }
 
     /***********************************************
@@ -119,14 +129,11 @@ public class CHospitalFacade : MonoBehaviour
     ************************************************/
     void AssignPatient(CHealthWorker _healthWorker, CPatient _patient)
     {
-        Debug.Log("AssignPatient");
-        while (_healthWorker.patient??false)
-        {
-            // wait for healthWorker to be free
-        }
+        nurseAdmin.patient = null;
+        nurseAdmin.patientBeingServiced = false;
         _healthWorker.patient = _patient;
     }
-
+   
     /***********************************************
     * name of the function: ReleasePatient
     * @author: Manu Easton

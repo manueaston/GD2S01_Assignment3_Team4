@@ -14,18 +14,19 @@ public class CAdminNurse : CHealthWorker
     * priority of patient to determine whether nurse
     * or doctor must attend patient
     ************************************************/
-    public void triagePatient()
-    {
-        UnityEngine.Debug.Log("Nurse Triaging Patient");
-        if (patient.GetPriority() == 1)
-        {
-            hospital.ReferPatientToNurse(patient.GetNeedType());
-        }
-        else
-        {
-            hospital.ReferPatientToDoctor(patient.GetNeedType());
-        }
-    }
+    //public void triagePatient()
+    //{
+    //    UnityEngine.Debug.Log("Nurse Triaging Patient");
+    //    if (patient.GetPriority() == 1)
+    //    {
+    //        hospital.ReferPatientToNurse(patient.GetNeedType());
+    //    }
+    //    else
+    //    {
+    //        hospital.ReferPatientToDoctor(patient.GetNeedType());
+    //    }
+    //}
+    // Swapped to AttendToPatient function for admin nurse
 
 
     /***********************************************
@@ -35,11 +36,20 @@ public class CAdminNurse : CHealthWorker
     * @return: Function has no return but calls 
     * releasPatient() function at end
     ************************************************/
-    public override void attendToPatient(float _serviceTime)
+    public override IEnumerator AttendToPatient()
     {
-        UnityEngine.Debug.Log("Nurse Attending to Patient");
-        hospital.ReleasePatient(patient); // release after patient is attended to
-        patient = null;
+        UnityEngine.Debug.Log("Nurse Triaging Patient");
+
+        yield return new WaitForSeconds(m_ServiceTime);
+
+        if (patient.GetPriority() == 1)
+        {
+            StartCoroutine(hospital.ReferPatientToNurse(patient.GetNeedType()));
+        }
+        else
+        {
+            StartCoroutine(hospital.ReferPatientToDoctor(patient.GetNeedType()));
+        }
     }
 
 

@@ -30,7 +30,7 @@ public class CPatient : MonoBehaviour
         SetPriority(UnityEngine.Random.Range(1, 4));
 
         //UnityEngine.Debug.Log("Patient enters ED: ");
-        UnityEngine.Debug.Log("Patient Priority : " + GetPriority() + " || Patient Need     : " + GetNeedType());
+        UnityEngine.Debug.Log("Patient Priority : " + GetPriority() + " || Patient Need : " + GetNeedType());
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class CPatient : MonoBehaviour
     {
         if (m_Need.m_Priority == 0)
         {
-            Debug.Log("Destroying Patient");
+            //Debug.Log("Destroying Patient");
             Destroy(this.gameObject);
         }
     }
