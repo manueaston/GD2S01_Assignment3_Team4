@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 710938788974557791}
   - component: {fileID: 712810171931399752}
   m_Layer: 0
-  m_Name: CPatient
+  m_Name: Patient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
