@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public class CAdminNurse : CNurse
+public class CCheckUpNurse : CNurse
 {
     void Start()
     {
-        CAdminNurseBehaviour behaviour = new CAdminNurseBehaviour();
+        CCheckUpNurseBehaviour behaviour = new CCheckUpNurseBehaviour();
         SetBehaviour(behaviour);
     }
 }

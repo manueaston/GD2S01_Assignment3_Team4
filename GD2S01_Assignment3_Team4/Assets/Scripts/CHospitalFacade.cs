@@ -6,10 +6,10 @@ using UnityEngine;
 // Serves as a facade to simplify the complex interactions between doctors, nurses and patients
 public class CHospitalFacade : MonoBehaviour
 {
-    public CNurse nurseAdmin;
-    public CNurse nurseNeed1;
-    public CNurse nurseNeed2;
-    public CNurse nurseNeed3;
+    public CAdminNurse nurseAdmin;
+    public CCheckUpNurse nurseNeed1;
+    public CCheckUpNurse nurseNeed2;
+    public CCheckUpNurse nurseNeed3;
     public CDoctor doctorNeed1;
     public CDoctor doctorNeed2;
     public CDoctor doctorNeed3;

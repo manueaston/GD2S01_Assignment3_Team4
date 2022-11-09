@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CNurse : CHealthWorker
+public abstract class CNurse : CHealthWorker
 {
     public INurseBehaviour nurseBehaviour;
 
@@ -12,7 +12,7 @@ public class CNurse : CHealthWorker
         yield return null;
     }
 
-    public SetBehaviour(INurseBehaviour _newNurseBehaviour)
+    public void SetBehaviour(INurseBehaviour _newNurseBehaviour)
     {
         nurseBehaviour = _newNurseBehaviour;
     }
