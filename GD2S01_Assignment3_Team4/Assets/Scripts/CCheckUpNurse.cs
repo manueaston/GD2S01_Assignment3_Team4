@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class CCheckUpNurse : CNurse
 {
-    void Start()
+    void Awake()
     {
-        CCheckUpNurseBehaviour behaviour = new CCheckUpNurseBehaviour();
-        SetBehaviour(behaviour);
+        CCheckUpNurseBehaviour checkUpBehaviour = gameObject.AddComponent<CCheckUpNurseBehaviour>() as CCheckUpNurseBehaviour;
+        // add checkup nurse behaviour as component
     }
 }

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class CAdminNurse : CNurse
 {
-    void Start()
+    void Awake()
     {
-        CAdminNurseBehaviour behaviour = new CAdminNurseBehaviour();
-        SetBehaviour(behaviour);
+        CAdminNurseBehaviour adminBehaviour = gameObject.AddComponent<CAdminNurseBehaviour>() as CAdminNurseBehaviour;
+        // add admin nurse behaviour as component
     }
 }

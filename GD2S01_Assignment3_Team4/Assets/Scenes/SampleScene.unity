@@ -223,7 +223,7 @@ PrefabInstance:
       objectReference: {fileID: 910625259}
     - target: {fileID: -3596600661357580474, guid: 7f1b9a94537f0244bbee5f3427f430c0, type: 3}
       propertyPath: m_ServiceTime
-      value: 18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5610377600788036039, guid: 7f1b9a94537f0244bbee5f3427f430c0, type: 3}
       propertyPath: m_RootOrder
