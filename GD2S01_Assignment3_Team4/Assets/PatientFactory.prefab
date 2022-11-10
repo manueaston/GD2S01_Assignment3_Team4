@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1430349748148819936}
   - component: {fileID: -7958119337271115362}
   m_Layer: 0
-  m_Name: CPatientFactory
+  m_Name: PatientFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
