@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class CDoctor : CHealthWorker
 {
+    void Start()
+    {
+        // shift in random range from 20 - 30 seconds
+        m_ShiftLength = Random.Range(20, 30);
+    }
+
     public override IEnumerator AttendToPatient()
     {
-        Debug.Log("Doctor Attending to Patient");
+        Debug.Log(gameObject.name + " Attending to Patient");
 
         yield return new WaitForSeconds(m_ServiceTime);
 

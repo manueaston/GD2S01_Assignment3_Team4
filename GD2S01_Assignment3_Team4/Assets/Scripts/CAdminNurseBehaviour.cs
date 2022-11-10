@@ -7,7 +7,7 @@ public class CAdminNurseBehaviour : MonoBehaviour, INurseBehaviour
     // must be a class to use coroutines
     public IEnumerator AttendToPatient(float _ServiceTime, CPatient _Patient, CHospitalFacade _Hospital, CHealthWorker _ThisNurse)
     {
-        UnityEngine.Debug.Log("Nurse Triaging Patient");
+        UnityEngine.Debug.Log(gameObject.name + " Triaging Patient");
 
         yield return new WaitForSeconds(_ServiceTime);
 
