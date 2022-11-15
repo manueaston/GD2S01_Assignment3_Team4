@@ -4,24 +4,18 @@ using UnityEngine;
 
 public class CDoctor : CHealthWorker
 {
-    // TODO: NeedType m_Specialisation
+    void Start()
+    {
+        // shift in random range from 20 - 30 seconds
+        m_ShiftLength = Random.Range(20, 30);
+    }
 
-
-    /***********************************************
-    * name of the function: attendToPatient
-    * @author: Manu Easton
-    * @parameter: N/A
-    * @return: Function has no return but calls 
-    * releasPatient() function at end
-    ************************************************/
     public override IEnumerator AttendToPatient()
     {
-        Debug.Log("Doctor Attending to Patient");
+        Debug.Log(gameObject.name + " Attending to Patient");
 
         yield return new WaitForSeconds(m_ServiceTime);
 
-        hospital.ReleasePatient(patient); // release after patient is attended to
-        patient = null;
-        patientBeingServiced = false;
+        hospital.ReleasePatient(this, patient); // release after patient is attended to
     }
 }
