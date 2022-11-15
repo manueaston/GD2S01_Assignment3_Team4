@@ -15,7 +15,8 @@ public class CGameManager : MonoBehaviour
     public enum gameState { gameStart, gameOver };
     // Intialise game state
     private gameState state = gameState.gameStart;
-
+    public string DebugGameState = "[Starting]";
+    public int StateNum = 0;
 
     // Hospital Staff:
 
@@ -46,18 +47,23 @@ public class CGameManager : MonoBehaviour
         {
             // Lose condition
             state = gameState.gameOver;
+            
         }
 
         if (state == gameState.gameStart)
         {
             // spawn patients
             PatientSpawnerScript.m_bIsSpawning = true;
+            DebugGameState = "[Active]";
+            StateNum = 1;
 
 
-           
+
         }
         else if (state == gameState.gameOver)
         {
+            StateNum = 2;
+            DebugGameState = "[Game Over]";
             UnityEngine.Debug.Log("Game Over: ");
             PatientSpawnerScript.m_bIsSpawning = false;
         }

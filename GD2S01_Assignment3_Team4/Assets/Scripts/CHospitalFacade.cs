@@ -13,9 +13,13 @@ public class CHospitalFacade : MonoBehaviour
     public CDoctor doctorNeed1;
     public CDoctor doctorNeed2;
     public CDoctor doctorNeed3;
-
+    
     public Queue<CPatient> patientQueue = new Queue<CPatient>();
     // Queue of patients at hospital
+
+    public int ReleasedCount = 0;
+    public int DoctorSeen1, DoctorSeen2, DoctorSeen3;
+    public int NurseSeen1, NurseSeen2, NurseSeen3;
 
     void Update()
     {
@@ -57,6 +61,7 @@ public class CHospitalFacade : MonoBehaviour
                 {
                     yield return new WaitUntil(() => doctorNeed1.patient is null);
 
+                    DoctorSeen1++;
                     Debug.Log("Patient assigned to doctor 1");
                     AssignPatient(doctorNeed1, nurseAdmin.patient);                   
                     break;
@@ -65,6 +70,7 @@ public class CHospitalFacade : MonoBehaviour
                 {
                     yield return new WaitUntil(() => doctorNeed2.patient is null);
 
+                    DoctorSeen2++;
                     Debug.Log("Patient assigned to doctor 2");
                     AssignPatient(doctorNeed2, nurseAdmin.patient);                    
                     break;
@@ -73,6 +79,8 @@ public class CHospitalFacade : MonoBehaviour
                 {
                     yield return new WaitUntil(() => doctorNeed3.patient is null);
 
+
+                    DoctorSeen3++;
                     Debug.Log("Patient assigned to doctor 3");
                     AssignPatient(doctorNeed3, nurseAdmin.patient);                    
                     break;
@@ -146,6 +154,9 @@ public class CHospitalFacade : MonoBehaviour
         _patient.SetPriority(0);
         // destroys patient from game when priority is 0
         Debug.Log("Patient released from hospital");
+
+        // Adds A Point For The Canvas Debug Screen
+        ReleasedCount++;
     }
 
 }

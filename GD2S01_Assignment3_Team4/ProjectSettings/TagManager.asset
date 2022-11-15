@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Tag_PatientSpawner
+  - Tag_Nurse
+  - Tag_AdminNurse
+  - Tag_Doctor
+  - Tag_HospitalFacade
+  - Tag_PatientFactory
+  - Tag_GameManager
   layers:
   - Default
   - TransparentFX
