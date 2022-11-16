@@ -17,6 +17,7 @@ public class CHospitalFacade : MonoBehaviour
     public Queue<CPatient> patientQueue = new Queue<CPatient>();
     // Queue of patients at hospital
 
+
     public int ReleasedCount = 0;
     public int DoctorSeen1, DoctorSeen2, DoctorSeen3;
     public int NurseSeen1, NurseSeen2, NurseSeen3;
@@ -79,7 +80,6 @@ public class CHospitalFacade : MonoBehaviour
                 {
                     yield return new WaitUntil(() => doctorNeed3.patient is null);
 
-
                     DoctorSeen3++;
                     Debug.Log("Patient assigned to doctor 3");
                     AssignPatient(doctorNeed3, nurseAdmin.patient);                    
@@ -104,6 +104,8 @@ public class CHospitalFacade : MonoBehaviour
                 {
                     yield return new WaitUntil(() => nurseNeed1.patient is null);
 
+
+                    NurseSeen1++;
                     Debug.Log("Patient assigned to nurse 1");
                     AssignPatient(nurseNeed1, nurseAdmin.patient);                 
                     break;
@@ -112,6 +114,7 @@ public class CHospitalFacade : MonoBehaviour
                 {
                     yield return new WaitUntil(() => nurseNeed2.patient is null);
 
+                    NurseSeen2++;
                     Debug.Log("Patient assigned to nurse 2");
                     AssignPatient(nurseNeed2, nurseAdmin.patient);
                     break;
@@ -120,6 +123,7 @@ public class CHospitalFacade : MonoBehaviour
                 {
                     yield return new WaitUntil(() => nurseNeed3.patient is null);
 
+                    NurseSeen3++;
                     Debug.Log("Patient assigned to nurse 3");
                     AssignPatient(nurseNeed3, nurseAdmin.patient);                   
                     break;

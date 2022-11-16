@@ -11,9 +11,11 @@ public abstract class CHealthWorker : MonoBehaviour
 
     public CHospitalFacade hospital;
     // Hospital facade
+    public InfomationBoard InfoBoard;
+
 
     public bool patientBeingServiced = false; // Used to check if healthworker is currently servicing a patient
-    private bool healthWorkerSwitching = false;
+    public bool healthWorkerSwitching = false;
 
     void Start()
     {
@@ -31,6 +33,7 @@ public abstract class CHealthWorker : MonoBehaviour
                 // health worker switch over
                 StartCoroutine(SwitchStaff());
                 healthWorkerSwitching = true;
+             
             }
             else if (patient ?? false) // true if patient has CPatient object
             {
@@ -51,14 +54,67 @@ public abstract class CHealthWorker : MonoBehaviour
 
 
     // deactivates health worker for 2 seconds, then reactivates, representing staff switch over
-    private IEnumerator SwitchStaff()
+    public IEnumerator SwitchStaff()
     {
+        if (this == hospital.doctorNeed1)
+        {
+            InfoBoard.Doc1 = true;
+        }
+        if (this == hospital.doctorNeed2)
+        {
+            InfoBoard.Doc2 = true;
+        }
+        if (this == hospital.doctorNeed3)
+        {
+            InfoBoard.Doc3 = true;
+        }
+
+        if (this == hospital.nurseNeed1)
+        {
+            InfoBoard.Nur1 = true;
+        }
+        if (this == hospital.nurseNeed2)
+        {
+            InfoBoard.Nur2 = true;
+        }
+        if (this == hospital.nurseNeed3)
+        {
+            InfoBoard.Nur3 = true;
+        }
         Debug.Log(gameObject.name + " has finished their shift");
         yield return new WaitForSeconds(2);
         Debug.Log("New " + gameObject.name + " has started their shift");
 
+        if (this == hospital.doctorNeed1)
+        {
+            InfoBoard.Doc1 = false;
+        }
+        if (this == hospital.doctorNeed2)
+        {
+            InfoBoard.Doc2 = false;
+        }
+        if (this == hospital.doctorNeed3)
+        {
+            InfoBoard.Doc3 = false;
+        }
+
+        if (this == hospital.nurseNeed1)
+        {
+            InfoBoard.Nur1 = false;
+        }
+        if (this == hospital.nurseNeed2)
+        {
+            InfoBoard.Nur2 = false;
+        }
+        if (this == hospital.nurseNeed3)
+        {
+            InfoBoard.Nur3 = false;
+        }
+
         // reset shift start time
         m_ShiftStartTime = Time.time;
         healthWorkerSwitching = false;
+       
+       
     }
 }
